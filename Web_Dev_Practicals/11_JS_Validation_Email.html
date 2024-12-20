@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ABES Engineering College | Login</title>
+  <style type="text/css">
+    body { margin: 0px; padding: 0px; }
+    *, html { margin: 0px; padding: 0px; }
+    main { width: 100%; height: auto; margin: 0px auto; }
+    table { margin: 0px auto; }
+    table td { text-align: center; }
+    .box { width: 400px; padding: 5px; }
+    .btn { width: 100px; padding: 5px; }
+  </style>
+</head>
+<body>
+  <main><!--login-->
+    <form action="" method="get" onsubmit="return validateForm()">
+      <table border="0" cellspacing="20">
+        <tr>
+          <th>Login</th>
+          <td><strong>JS Validation for User E-mail and Phone</strong></td>
+        </tr>
+        <tr>
+          <td><label for="userMail">User Email:</label></td>
+          <td><input type="email" placeholder="Enter your E-mail" class="box" id="userMail"></td>
+        </tr>
+        <tr>
+          <td><label for="userPhone">Phone:</label></td>
+          <td><input type="text" placeholder="Enter your Number" maxlength="10" id="userPhone" class="box"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" class="btn" value="Submit">
+            <input type="reset" class="btn" value="Reset">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </main><!--login-->
+
+  <script type="text/javascript">
+    function validateForm() {
+      var mailInput = document.getElementById('userMail').value;
+      var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      var phoneInput = document.getElementById('userPhone').value;
+
+      if (!mailInput.match(mailFormat)) {
+        alert("Please enter a valid E-mail ID.");
+        return false; // Prevent form submission
+      }
+
+      if (phoneInput.length !== 10 || !/^\d+$/.test(phoneInput)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return false; // Prevent form submission
+      }
+
+      alert('Success: Data is valid!');
+      return true; // Allow form submission
+    }
+  </script>
+</body>
+</html>
